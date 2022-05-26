@@ -1,0 +1,19 @@
+--------------------
+REQUIREMENTS
+--------------------
+Visual Studio (2019+)
+
+R Studio
+
+--------------------
+STEPS
+--------------------
+1. Run the SSIS Package to export data from SQL to tab-delimited text files (takes several days)
+2. Run apcd_export_filename_fix.R to modify file names with set file date
+3. Update the APCD_Tables_DATE.xlsx file with any new tables/columns
+4. Move exported data to proper schema folders in the SFTP file directory
+5. Copy apcd_import.R, apcd_import_functions.R, apcd_import_config.yaml, and APCD_Tables_DATE.xlsx files to SFTP file directory
+6. Notify KCIT to update SFTP files
+7. Notify client to download the R, YAML, and XLSX files (all to same directory)
+8. Have client update YAML file with file directory and SQL server information
+9. Client runs apcd_import.R
