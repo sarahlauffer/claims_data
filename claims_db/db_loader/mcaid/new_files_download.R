@@ -57,6 +57,7 @@ if(T) {
   gzdir <- paste0(basedir, "\\gz\\")
   schema <- "claims"
   table <- "metadata_etl_log"
+  memory.limit(size = 56000)
   
   h <- curl::new_handle()
   curl::handle_setopt(handle = h, httpauth = 1, userpwd = paste0(key_list("hca_sftp")[["username"]], ":", key_get("hca_sftp", key_list("hca_sftp")[["username"]])))
