@@ -61,7 +61,6 @@ if (server == "hhsaw") {
 load_mcaid_elig_config <- yaml::yaml.load(httr::GET("https://raw.githubusercontent.com/PHSKC-APDE/claims_data/master/claims_db/phclaims/load_raw/tables/load_load_raw.mcaid_elig_partial.yaml"))
 devtools::source_url("https://raw.githubusercontent.com/PHSKC-APDE/claims_data/master/claims_db/phclaims/load_raw/tables/load_load_raw.mcaid_elig_partial.R")
 
-
 ### Select File
 raw_list <- get_unloaded_etl_batches_f(db_claims,
                                        server,
@@ -195,6 +194,22 @@ stage_address_clean_timestamp <- load_stage.address_clean_partial_step1(server =
                                                                         config = stage_address_clean_config,
                                                                         source = 'mcaid',
                                                                         interactive_auth = interactive_auth)
+# Check if Informatica has run
+informatica_check <- 0
+while(informatica_check == 0) {
+  conn_hhsaw <- create_db_connection("hhsaw", interactive = interactive_auth)
+  informatica_check <- as.numeric(DBI::dbGetQuery(conn_hhsaw, 
+                              glue::glue_sql("SELECT COUNT(*)
+                               FROM {`stage_address_clean_config[['informatica_ref_schema']]`}.{`stage_address_clean_config[['informatica_output_table']]`} 
+                               WHERE convert(varchar, timestamp, 20) = 
+                                               {lubridate::with_tz(stage_address_clean_timestamp, 'utc')}",
+                                             .con = conn_hhsaw)))
+  if(informatica_check > 0) {
+    message(paste0(informatica_check, " addresses have been added cleaned with Informatica."))
+  } else {
+    Sys.sleep(600)
+  }
+}
 
 if (stage_address_clean_timestamp != 0) {
   # Load time stamp value to metadata table in case R breaks and needs a restart
@@ -341,6 +356,7 @@ if (stage_address_clean_timestamp != 0) {
 stage_address_geocode_config <- yaml::yaml.load(httr::GET("https://raw.githubusercontent.com/PHSKC-APDE/claims_data/master/claims_db/phclaims/stage/tables/create_stage.address_geocode.yaml"))
 
 devtools::source_url("https://raw.githubusercontent.com/PHSKC-APDE/claims_data/master/claims_db/phclaims/stage/tables/load_stage.address_geocode_partial.R")
+
 conn_hhsaw <- create_db_connection("hhsaw", interactive = interactive_auth)
 qa_stage_address_geocode <- stage_address_geocode_f(conn = conn_hhsaw, 
                                                     server = "hhsaw", 
