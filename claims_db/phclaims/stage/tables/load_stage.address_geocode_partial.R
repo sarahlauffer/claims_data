@@ -82,7 +82,12 @@ stage_address_geocode_f <- function(conn = NULL,
                        FROM {`ref_schema`}.address_geocode) b
                      ON 
                      a.geo_hash_geocode = b.geo_hash_geocode
-                     WHERE b.geocoded IS NULL",
+                     LEFT JOIN
+                     (SELECT geo_hash_geocode, 1 as stg_geocoded
+                       FROM {`ref_schema`}.{DBI::SQL(stage_table)}address_geocode) c
+                     ON 
+                     a.geo_hash_geocode = c.geo_hash_geocode
+                     WHERE b.geocoded IS NULL AND stg_geocoded IS NULL",
                      .con = conn))
   } else {
     adds_to_code <- dbGetQuery(conn,
@@ -99,6 +104,22 @@ stage_address_geocode_f <- function(conn = NULL,
       mutate(geo_add_single = paste(geo_add1_clean, geo_city_clean, geo_zip_clean, sep = ", ")) %>%
       mutate(geo_add_single = gsub("\\[|\\]|\\}|\\{", "", geo_add_single))
     
+    adds_to_code_full <- adds_to_code
+    row_cnt <- nrow(adds_to_code_full)
+    row_inc <- 10000
+    row_start <- 1
+    row_end <- row_cnt %% row_inc
+    if(row_end == 0) { row_end <- row_inc }
+    row_load_ref_geo <- 0
+    message(paste0("There are ", row_cnt, " addresses to process... ", Sys.time()))
+while(row_end <= row_cnt) {
+    adds_to_code <- adds_to_code_full[row_start:row_end,]  
+    message(paste0("Processing rows ", row_start, " through ", row_end, " (", row_cnt, " total rows)... ", Sys.time()))
+    row_start <- row_end + 1
+    row_end <- row_start + row_inc - 1
+    
+    
+      
     #### RUN THROUGH ESRI GEOCODER ####
     message(paste0("Running through ESRI geocoder ... ", Sys.time()))
     
@@ -573,13 +594,14 @@ stage_address_geocode_f <- function(conn = NULL,
                  name = DBI::Id(schema = to_schema, table = to_table), 
                  value = as.data.frame(adds_coded_load), 
                  append = T, overwrite = F)
-    
+    row_load_ref_geo <- row_load_ref_geo + nrow(adds_coded_load)
+}    
     conn <- create_db_connection(server, interactive = interactive_auth, prod = prod)
     #### BASIC QA ####
     message(paste0("Running basic QA ... ", Sys.time()))
     if (full_refresh == F) {
       ### Compare row counts now
-      row_load_ref_geo <- nrow(adds_coded_load)
+      
       stage_rows_after <- as.numeric(dbGetQuery(
         conn, glue::glue_sql("SELECT COUNT (*) FROM {`to_schema`}.{`to_table`}", .con = conn)))
       stage_rows_after_distinct <- as.numeric(dbGetQuery(
