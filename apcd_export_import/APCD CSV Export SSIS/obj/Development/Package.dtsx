@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{48477007-4FEA-44D1-A6FF-2EF81E867100}">
+  DTS:VersionBuild="89"
+  DTS:VersionGUID="{A97237CA-2786-44AD-9272-0F6944AFC186}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -289,7 +289,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -1604,7 +1604,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -2106,7 +2106,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -2770,7 +2770,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -3342,7 +3342,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -3805,7 +3805,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -4924,7 +4924,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -6181,7 +6181,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -7605,7 +7605,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -8337,7 +8337,7 @@
                   dataType="System.String"
                   description="Define custom replacement rules to search and replace certain characters. This option is only valid when EnableCustomEscapeSequence=true. Replacement rule should contain key=value pairs separated by semicolon (i.e. ; ). In the key=value pairs, left side you have to define character to be searched and on the right side replacement value. You can hard code character directly or use designated keyword (e.g. supported keywords are {doublequote} {semicolon} {tab}, {cr}, {lf}, {null}). You can also use Hex chars to search (e.g. \xff44=something). Use blank value in the second part to replace with blank. Example: {null}=\0;&quot;=&quot;&quot;;{semicolon}=\{semicolon};{cr}=\r;{lf}=\n;{tab}=\t;{columndelimiter}=\{columndelimiter};\xff32=;\xff31=;{null}=;"
                   expressionType="Notify"
-                  name="CustomEscapeSequenceRule">{doublequote}="";</property>
+                  name="CustomEscapeSequenceRule">{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}="";</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">ZappySys.CsvDestination</property>
@@ -9431,6 +9431,7 @@
       DTS:refId="Package\ZS Export CSV Batch final"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
+      DTS:Disabled="True"
       DTS:DTSID="{254a5c22-83f9-4fd9-8211-e3dc549b2e68}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
@@ -9477,7 +9478,7 @@
           GroupByColumn=""
           Compress="True"
           KeepRaw="False"
-          EnableCustomEscapeSequence="False"
+          EnableCustomEscapeSequence="True"
           CustomEscapeSequenceRule="{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}=&quot;&quot;;{columndelimiter}=\{columndelimiter}"
           SplitFiles="True"
           MaxSizePerFile="2GB"
@@ -9493,6 +9494,7 @@
       DTS:refId="Package\ZS Export CSV Batch ref"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
+      DTS:Disabled="True"
       DTS:DTSID="{B1887FA5-FDF1-4DFB-8B45-928EB814BF01}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
@@ -9539,7 +9541,7 @@
           GroupByColumn=""
           Compress="True"
           KeepRaw="False"
-          EnableCustomEscapeSequence="False"
+          EnableCustomEscapeSequence="True"
           CustomEscapeSequenceRule="{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}=&quot;&quot;;{columndelimiter}=\{columndelimiter}"
           SplitFiles="True"
           MaxSizePerFile="2GB"
@@ -9555,6 +9557,7 @@
       DTS:refId="Package\ZS Export CSV Batch stage"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
+      DTS:Disabled="True"
       DTS:DTSID="{e76dbd63-7e8c-4da6-8b67-3d51cdc19e7b}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
@@ -9601,7 +9604,7 @@
           GroupByColumn=""
           Compress="True"
           KeepRaw="False"
-          EnableCustomEscapeSequence="False"
+          EnableCustomEscapeSequence="True"
           CustomEscapeSequenceRule="{cr}=\r;{lf}=\n;{tab}=\t;{doublequote}=&quot;&quot;;{columndelimiter}=\{columndelimiter}"
           SplitFiles="True"
           MaxSizePerFile="2GB"
@@ -10112,7 +10115,7 @@
     design-time-name="Package\DFT final apcd_claim_icdcm_header">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\DFT final apcd_claim_icdcm_header\OLE DB Source"
@@ -10140,7 +10143,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10228,7 +10233,7 @@
     design-time-name="Package\DFT final apcd_claim_procedure">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\DFT final apcd_claim_procedure\OLE DB Source"
@@ -10268,7 +10273,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10419,7 +10426,7 @@
     design-time-name="Package\DFT stage apcd_eligibility">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\DFT stage apcd_eligibility\OLE DB Source"
@@ -10459,7 +10466,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -264,7 +264,7 @@ apcd_ftp_get_file_list_f <- function(config) {
   sfiles$schema <- "stage"
   h <- curl::new_handle()
   curl::handle_setopt(handle = h, httpauth = 1, userpwd = paste0(key_list(config$ftp_keyring)[["username"]], ":", key_get(config$ftp_keyring, key_list(config$ftp_keyring)[["username"]])))
-  url <- paste0(config$ftp_url, "final_schema/")
+  url <- paste0(config$ftp_url, "final_schema2/")
   json <- curl::curl_fetch_memory(url, handle = h)
   ftpfiles <- fromJSON(rawToChar(json$content))
   ffiles <- cbind(ftpfiles[["files"]]["fileName"], ftpfiles[["files"]]["lastModifiedTime"])
@@ -318,8 +318,10 @@ apcd_data_load_f <- function(config,
   message("......Extracting Complete...")
   # Count rows in file and update ETL log
   message("......Counting Rows in File...")
-  file_csv <- str_replace(file$file_path, ".gz", "")
-  df <- read.csv(file_csv, header = T, check.names = F, fill = T)
+  file_raw <- str_replace(file$file_path, ".gz", "")
+  df <- read.delim(file_raw, 
+                   header = T, 
+                   check.names = F)
   file$rows_file <- nrow(df)
   apcd_etl_entry_f(config,
                    etl_id = file$etl_id,
@@ -350,7 +352,7 @@ apcd_data_load_f <- function(config,
                        server = "apcd",
                        to_schema = file$file_schema,
                        to_table = file$file_table,
-                       file_path = file_csv)
+                       file_path = file_raw)
   message("......Loading Complete... ")
   # Update datetime_load in ETL log
   conn <- DBI::dbConnect(odbc::odbc(), config$odbc_name)
@@ -380,7 +382,7 @@ apcd_data_load_f <- function(config,
   if(file$rows_file == file$rows_loaded) {
     message("......All Rows Successfully Loaded to SQL Table...")
   } else {
-    stop("ERROR: Row Count of File does NOT MATCH Rows Loaded to SQL Table!!!")
+    #stop("ERROR: Row Count of File does NOT MATCH Rows Loaded to SQL Table!!!")
   }
   # If the file is the last file for the table, add an index to the table
   if(file$file_schema != config$ref_schema && file$file_num == file$max_file_num) {
@@ -402,7 +404,7 @@ apcd_data_load_f <- function(config,
   }
   # Remove extracted file
   message("......Deleting Extracted File...")
-  unlink(file_csv)
+  unlink(file_raw)
 }
 
 ## Check for Archive table, Delete Old Archive table, Check for Old table, Delete Index from Old table, Archive Old Table

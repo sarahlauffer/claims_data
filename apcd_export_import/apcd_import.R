@@ -1,4 +1,6 @@
 ### STEP 1: LOAD FUNCTIONS, CONFIG FILE, DEFINE DIRECTORY VARIABLES, AND CHECK CREDENTIALS
+setwd("apcd_export_import")
+
 if(T) {
   message("STEP 1: Loading Functions, Config File, Defining Variables, and Check SFTP Credentials...")
   source("apcd_import_functions.R")
@@ -76,10 +78,22 @@ if(T) {
 
 ### STEP 4: EXTRACT AND LOAD DATA FROM FILES INTO SQL
 if(T) {
+  # Select which schemas and tables to import
+  etl_list <- apcd_etl_get_list_f(config)
+  files <- etl_list %>% filter(is.na(datetime_load)) %>% filter(!is.na(datetime_download))
+  schemas <- dlg_list(unique(files$file_schema), 
+                      multiple = T,
+                      title = "Select File Schemas to Download")$res
+  files <- files[files$file_schema %in% schemas, ]
+  tables <- dlg_list(unique(files$file_table), 
+                     multiple = T,
+                     preselect = unique(files$file_table),
+                     title = "Select File Tables to Download")$res
+  files <- files[files$file_table %in% tables, ]
   message(paste0("Begin Loading ", nrow(files), " Files into SQL Server..."))
   for(f in 1:nrow(files)) {
     message(paste0("...Loading File: "  , f, ": ", files[f, "file_name"], "..."))
-    apcd_data_load_f(config, files[f, ])  
+    apcd_data_load_f(config, file = files[f, ])  
     message(paste0("......Loading Complete. ", nrow(files) - f, " of ", nrow(files), " left to import..."))
   }
   message("All Files Loaded...")
