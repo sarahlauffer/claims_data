@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="89"
-  DTS:VersionGUID="{A97237CA-2786-44AD-9272-0F6944AFC186}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{24F449C5-427F-4335-881B-260C87C8FEED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9431,7 +9431,6 @@
       DTS:refId="Package\ZS Export CSV Batch final"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
-      DTS:Disabled="True"
       DTS:DTSID="{254a5c22-83f9-4fd9-8211-e3dc549b2e68}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
@@ -9494,7 +9493,6 @@
       DTS:refId="Package\ZS Export CSV Batch ref"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
-      DTS:Disabled="True"
       DTS:DTSID="{B1887FA5-FDF1-4DFB-8B45-928EB814BF01}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
@@ -9557,7 +9555,6 @@
       DTS:refId="Package\ZS Export CSV Batch stage"
       DTS:CreationName="ZappySys.CsvExportTask"
       DTS:Description="ZS Export CSV Task"
-      DTS:Disabled="True"
       DTS:DTSID="{e76dbd63-7e8c-4da6-8b67-3d51cdc19e7b}"
       DTS:ExecutableType="ZappySys.CsvExportTask"
       DTS:LocaleID="-1"
