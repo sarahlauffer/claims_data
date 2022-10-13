@@ -1301,7 +1301,7 @@ claims_elig <- function(conn,
   }
   
   # King County (APCD/MCARE)
-  if (source %in% c("apcd", "mcaid_mcare", "mcare", "mcaid_mcare_pha")) {
+  if (source %in% c("mcaid_mcare", "mcare", "mcaid_mcare_pha")) {
     geo_kc_sql <- timevar_gen_sql(var = "geo_kc", pct = T)
     
     if (!is.null(geo_kc_min)) {
@@ -1326,7 +1326,7 @@ claims_elig <- function(conn,
       geo_zip_final.geo_zip, geo_zip_final.geo_zip_days, 
       geo_ach_code_final.geo_ach_code, geo_ach_code_final.geo_ach_code_days, 
       geo_county_code_final.geo_county_code, geo_county_code_final.geo_county_code_days, 
-      geo_kc_final.geo_kc, geo_kc_final.geo_kc_pct, ",
+      ",
       .con = conn)
   } else if (source == "mcaid") {
     timevar_vars <- glue::glue_sql(
